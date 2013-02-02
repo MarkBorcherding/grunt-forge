@@ -1,19 +1,26 @@
 {
-  "name": "grunt-triggerio",
+  "name": "grunt-forge",
   "version": "0.0.0",
   "description": "Grunt tasks for running Trigger.io build steps.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "git@github.com:MarkBorcherding/grunt-triggerio.git"
+    "url": "git@github.com:MarkBorcherding/grunt-forge.git"
   },
   "keywords": [
     "trigger-io",
-    "grunt"
+    "forge",
+    "grunt",
+    "gruntplugin"
   ],
   "author": "Mark Borcherding",
-  "license": "BSD"
+  "license": "BSD",
+
+  "main": "grunt.js",
+  "bin": "bin/grunt-forge",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "*"
+  }
 }
