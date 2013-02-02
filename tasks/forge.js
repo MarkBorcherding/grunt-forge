@@ -3,6 +3,7 @@ module.exports = function(grunt) {
   "use strict";
 
   var spawn = require('child_process').spawn;
+  var log = grunt.log;
 
   var puts = function(data) {
     log.write(String(data));
