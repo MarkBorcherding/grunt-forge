@@ -1,49 +1,32 @@
-"use strict";
 
 module.exports = function(grunt) {
+  "use strict";
 
-  var task = grunt.task;
-  var file = grunt.file;
-  var utils = grunt.utils;
   var log = grunt.log;
   var verbose = grunt.verbose;
-  var fail = grunt.fail;
-  var option = grunt.option;
-  var config = grunt.config;
-  var template = grunt.template;
-
-  // dependencies
-  // ------------
-
   var spawn = require('child_process').spawn;
 
   var puts = function(data) {
     log.write(String(data));
   };
 
+  var forge = function(options, done){
+    var cmd = spawn("forge", options);
+    cmd.stdout.on('data', puts);
+    cmd.stderr.on('data', puts);
+    cmd.on('exit', function(data){ done(); });
+  };
 
   grunt.registerTask('forge:build', function(){
-    var done = this.async();
-    var forge = spawn("forge", ['build', 'ios']);
-    forge.stdout.on('data', puts);
-    forge.stderr.on('data', puts);
-    forge.on('exit', function(data){ done(); });
+    forge(['build','ios'], this.async());
   });
 
   grunt.registerTask('forge:sim', function(){
-    var done = this.async();
-    var forge = spawn("forge", ['run', 'ios']);
-    forge.stdout.on('data', puts);
-    forge.stderr.on('data', puts);
-    forge.on('exit', function(data){ done(); });
+    forge(['run','ios'], this.async());
   });
 
   grunt.registerTask('forge:device', function(){
-    var done = this.async();
-    var forge = spawn("forge", ['run', 'ios', '--io.device', 'device']);
-    forge.stdout.on('data', puts);
-    forge.stderr.on('data', puts);
-    forge.on('exit', function(data){ done(); });
+    forge(['run', 'ios', '--io.device', 'device'], this.async());
   });
 
 };
