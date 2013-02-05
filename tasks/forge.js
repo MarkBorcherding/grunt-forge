@@ -6,7 +6,16 @@ module.exports = function(grunt) {
   var log = grunt.log;
 
   var puts = function(data) {
-    log.write(String(data));
+    var message = String(data);
+
+    message = message.replace(/ERROR/g, "ERROR".red )
+                     .replace(/WARNING/g, "WARNING".yellow)
+                     .replace(/INFO/g, "INFO".cyan)
+                     .replace(/DEBUG/g, "DEBUG".grey)
+                     .replace(/FORGE/g, "FORGE".blue)
+                     .replace(/\d{4}-\d{2}-\d{2} [0-9:\.]+ Forge\[[0-9:a-f]+\] /g, "");
+
+    log.write(message);
   };
 
   grunt.registerMultiTask("forge", "Compile and run the app using forge.", function() {
