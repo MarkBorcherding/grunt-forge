@@ -12,8 +12,11 @@ module.exports = function(grunt) {
                      .replace(/WARNING/g, "WARNING".yellow)
                      .replace(/INFO/g, "INFO".cyan)
                      .replace(/DEBUG/g, "DEBUG".grey)
+                     .replace(/CRITICAL/g, "CRITICAL".red.reverse)
                      .replace(/FORGE/g, "FORGE".blue)
-                     .replace(/\d{4}-\d{2}-\d{2} [0-9:\.]+ Forge\[[0-9:a-f]+\] /g, "");
+                     .replace(/\d{4}-\d{2}-\d{2} [0-9:\.]+ Forge\[[0-9:a-f]+\] /g, "")
+                     .replace(/file:\/\/\/.*\/Forge\/[^\/]+/g, "file:///....".grey)
+                     ;
 
     log.write(message);
   };
