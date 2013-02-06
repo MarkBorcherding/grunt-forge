@@ -22,7 +22,7 @@ grunt.initConfig({
   forge: {
     ios_build: { params: ['build', 'ios'] },
     ios_sim: { params: ['run', 'ios'] },
-    ios_device: { params: ['run', 'ios', '--ios.device', 'device'] }
+    ios_device: { params: ['run', 'ios', '--ios.device', 'device'] },
     ios_package: { params: ['package', 'ios'] }
   }
 
