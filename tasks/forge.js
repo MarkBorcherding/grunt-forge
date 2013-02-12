@@ -46,6 +46,8 @@ module.exports = function(grunt) {
   var colorize = function(messages) {
     for(var i=0; i<messages.length; i++) {
       messages[i] = messages[i]
+        .replace(/▾/g, '▾'.grey )
+        .replace(/\|/g, '|'.grey )
         .replace(/ERROR/g, "ERROR".red )
         .replace(/WARNING/g, "WARNING".yellow)
         .replace(/INFO/g, "INFO".cyan)
