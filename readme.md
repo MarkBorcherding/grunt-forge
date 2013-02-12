@@ -20,7 +20,10 @@ grunt.initConfig({
   //...
 
   forge: {
-    ios_build: { params: ['build', 'ios'] },
+    ios_build: {
+      verbose: true,
+      params: ['build', 'ios']
+    },
     ios_sim: { params: ['run', 'ios'] },
     ios_device: { params: ['run', 'ios', '--ios.device', 'device'] },
     ios_package: { params: ['package', 'ios'] }
@@ -33,6 +36,11 @@ grunt.initConfig({
 
 You can add whatever tasks you want. It doesn't do anything special other than chain the arguments together
 and run `forge`.
+
+## Filtering
+
+Many of the `forge` messages are filtered by default and you are left only with the logging messages. You can disable
+this by setting `verbose:true` as an option.
 
 
 ## Shortcuts
