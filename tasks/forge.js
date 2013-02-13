@@ -30,13 +30,26 @@ module.exports = function(grunt) {
     }
   };
 
+  var ERROR_MESSAGE = /^\[\s+\w+\] (Error:|Stack trace:)/;
+  var STACK_TRACE_LINE = /^\[\s*\w+\] .*@file:.*:\d+/;
+  var stackTrace = function(line) {
+    if (ERROR_MESSAGE.test(line)
+        || STACK_TRACE_LINE.test(line)){
+      return line
+        .replace(/file:\/\/\/.*\/Forge\/[^\/]+/g, "file:///....")
+        .replace('[   INFO]', '[  ERROR]');
+
+    }
+  }
+
   var filter = function(lines) {
     var remaining = [];
     for(var index in lines) {
       var line = lines[index].replace(/\d{4}-\d{2}-\d{2} [0-9:\.]+ Forge\[[0-9:a-f]+\] /g, "");
       var l = null;
-      if( l = loggingMessage(line)
-          || systemMessage(line)) {
+      if( l = stackTrace(line)
+          || loggingMessage(line)
+          || systemMessage(line) ) {
             remaining.push(l);
           }
     }
