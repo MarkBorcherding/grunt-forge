@@ -60,11 +60,12 @@ module.exports = function(grunt) {
     for(var i=0; i<messages.length; i++) {
       messages[i] = messages[i]
         .replace(/▾/g, '▾'.grey )
-        .replace(/\|/g, '|'.grey )
-        .replace(/ERROR/g, "ERROR".red )
-        .replace(/WARNING/g, "WARNING".yellow)
-        .replace(/INFO/g, "INFO".cyan)
-        .replace(/DEBUG/g, "DEBUG".grey)
+        .replace(/\│/g, "│".grey )
+        .replace(/\└/g, "└".grey )
+        .replace(/\[  ERROR\]/g, "[  ".grey + "ERROR".red + "]".grey)
+        .replace(/\[WARNING\]/g, "[".grey + "WARNING".yellow +"]".grey)
+        .replace(/\[   INFO\]/g, "[   ".grey + "INFO".cyan + "]".grey)
+        .replace(/\[  DEBUG\]/g, "[  ".grey + "DEBUG".grey + "]".grey)
         .replace(/CRITICAL/g, "CRITICAL".red.reverse)
         .replace(/FORGE/g, "FORGE".blue);
     }
