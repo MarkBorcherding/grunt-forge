@@ -40,7 +40,7 @@ grunt.initConfig({
 You can add whatever tasks you want. It doesn't do anything special other than chain the arguments together
 and run `forge`.
 
-You only need to add the `username` and `password` options if their prompts appear when you run `forge` manually. If the username and passwords prompts don't appear, it means your machine stored your login cookies at the TriggerToolkit directory (inside build-tools dir).
+You only need to add the `username` and `password` options if their prompts appear when you run `forge` manually. If the username and password prompts don't appear, it means your machine stored your login cookies at the TriggerToolkit directory (inside build-tools dir).
 
 
 ## Filtering
