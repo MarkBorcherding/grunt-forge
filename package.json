@@ -1,6 +1,6 @@
 {
   "name": "grunt-forge",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Grunt tasks for running Trigger.io build steps.",
   "repository": {
     "type": "git",
