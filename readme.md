@@ -21,12 +21,15 @@ grunt.initConfig({
 
   forge: {
     ios_build: {
-      verbose: true,
-      params: ['build', 'ios']
+      args: ['build', 'ios'],
+      options: {
+        username: 'your_trigger_email@example.com',
+        password: 'your_trigger_password'
+      }
     },
-    ios_sim: { params: ['run', 'ios'] },
-    ios_device: { params: ['run', 'ios', '--ios.device', 'device'] },
-    ios_package: { params: ['package', 'ios'] }
+    ios_sim: { args: ['run', 'ios'] },
+    ios_device: { args: ['run', 'ios', '--ios.device', 'device'] },
+    ios_package: { args: ['package', 'ios'] }
   }
 
   //...
@@ -36,6 +39,9 @@ grunt.initConfig({
 
 You can add whatever tasks you want. It doesn't do anything special other than chain the arguments together
 and run `forge`.
+
+You only need to add the `username` and `password` options if their prompts appear when you run `forge` manually. If the username and password prompts don't appear, it means your machine stored your login cookies at the TriggerToolkit directory (inside build-tools dir).
+
 
 ## Filtering
 
