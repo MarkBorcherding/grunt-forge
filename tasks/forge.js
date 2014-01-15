@@ -93,11 +93,14 @@ module.exports = function(grunt) {
       "--password", options.password
     ].concat(this.data.args);
 
+    var opts = {cwd: this.data.cwd}
+
     var done = this.async();
 
     var child = grunt.util.spawn({
       cmd: options.command,
-      args: args
+      args: args,
+      opts: opts
     }, function (err, result, code) {
       var success = code === 0;
       
