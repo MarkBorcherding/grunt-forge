@@ -10,7 +10,7 @@ Add the following to your `package.json`.
   "grunt-forge": "git://github.com/MarkBorcherding/grunt-forge.git",
 ```
 
-Add the folloing to your `grunt.js`.
+Add the following to your `grunt.js`.
 
 ```javascript
 grunt.loadNpmTasks('grunt-forge');
@@ -21,6 +21,7 @@ grunt.initConfig({
 
   forge: {
     ios_build: {
+      cwd: 'app',
       args: ['build', 'ios'],
       options: {
         username: 'your_trigger_email@example.com',
@@ -38,9 +39,10 @@ grunt.initConfig({
 ```
 
 You can add whatever tasks you want. It doesn't do anything special other than chain the arguments together
-and run `forge`.
+and run `forge` in the directory specified by cwd.
 
 You only need to add the `username` and `password` options if their prompts appear when you run `forge` manually. If the username and password prompts don't appear, it means your machine stored your login cookies at the TriggerToolkit directory (inside build-tools dir).
+
 
 
 ## Filtering
@@ -62,8 +64,8 @@ grunt.registerTask("package", 'build forge:ios_package');
 
 ## Output
 
-The tasks add a bit of color to the output.  It also eliminates some noise, and tries to reduce the amount of ouput
-to a more mangeable amount. If you're not seeing some output, keep that in mind.
+The tasks add a bit of color to the output.  It also eliminates some noise, and tries to reduce the amount of output
+tto a more manageable amount. If you're not seeing some output, keep that in mind.
 
-As an example, it strips out some device specific path infomation and leave the more important bits.
+As an example, it strips out some device specific path information and leave the more important bits.
 
